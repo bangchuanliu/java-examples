@@ -9,7 +9,8 @@
     <version>0.0.1-SNAPHOST</version>
     <modules>
         <module>design-pattern</module>
-        <module>java-concurrency</module>
+        <module>concurrency</module>
+        <module>effective-java</module>
     </modules>
     <name>java-examples</name>
     <properties>
