@@ -1,4 +1,4 @@
-package sychronized;
+package synchronize;
 
 import java.util.concurrent.TimeUnit;
 
