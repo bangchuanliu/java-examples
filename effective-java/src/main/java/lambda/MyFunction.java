@@ -1,4 +1,4 @@
-package lambadas_streams;
+package lambda;
 
 @FunctionalInterface
 public interface MyFunction<T, U, V, R> {

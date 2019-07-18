@@ -1,4 +1,4 @@
-package lambadas_streams;
+package lambda;
 
 public class Person {
     private String name;
