@@ -1,4 +1,4 @@
-package lambadas_streams;
+package stream;
 
 import java.util.*;
 import java.util.stream.Collectors;

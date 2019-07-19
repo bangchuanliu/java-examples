@@ -1,4 +1,4 @@
-package sychronized;
+package synchronize;
 
 public class Counter {
 

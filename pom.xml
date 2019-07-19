@@ -8,10 +8,9 @@
     <packaging>pom</packaging>
     <version>0.0.1-SNAPHOST</version>
     <modules>
-        <module>design-pattern</module>
         <module>concurrency</module>
         <module>effective-java</module>
-        <module>java-jvm</module>
+        <module>design-pattern</module>
     </modules>
     <name>java-examples</name>
     <properties>
