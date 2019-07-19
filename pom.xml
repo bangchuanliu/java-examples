@@ -11,6 +11,7 @@
         <module>design-pattern</module>
         <module>concurrency</module>
         <module>effective-java</module>
+        <module>java-jvm</module>
     </modules>
     <name>java-examples</name>
     <properties>
