@@ -1,4 +1,4 @@
-package chapter1.staticmethods;
+package chapter1.staticmethod;
 
 public enum Card {
     JACK,QUEEN,KING
