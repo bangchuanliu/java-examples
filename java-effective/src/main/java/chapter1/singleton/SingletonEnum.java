@@ -1,7 +1,10 @@
 package chapter1.singleton;
 
+/**
+ * works for reflection and serialization
+ * 
+ */
 public enum SingletonEnum {
-
     INSTANCE;
 
     int value;
