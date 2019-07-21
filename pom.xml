@@ -13,7 +13,9 @@
         <module>design-pattern</module>
         <module>java-jvm</module>
     </modules>
-    <name>java-examples</name>
+    <name>java-examples</name>:wq
+:wq
+
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
