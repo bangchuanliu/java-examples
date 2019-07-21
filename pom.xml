@@ -8,13 +8,12 @@
     <packaging>pom</packaging>
     <version>0.0.1-SNAPHOST</version>
     <modules>
-        <module>concurrency</module>
-        <module>effective-java</module>
+        <module>java-concurrency</module>
+        <module>java-effective</module>
         <module>design-pattern</module>
         <module>java-jvm</module>
     </modules>
-    <name>java-examples</name>:wq
-:wq
+    <name>java-examples</name>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
