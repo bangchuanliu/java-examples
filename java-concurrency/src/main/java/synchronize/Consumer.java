@@ -1,36 +1,32 @@
 package synchronize;
 
-import java.util.Queue;
+import java.util.concurrent.ThreadLocalRandom;
 import java.util.concurrent.TimeUnit;
 
-public class Consumer implements Runnable {
+public class Consumer implements Runnable{
 
-    private final Queue<Integer> queue;
+    private TaskQueue taskQueue;
 
-    public Consumer(Queue<Integer> queue) {
-        this.queue = queue;
+    public Consumer(TaskQueue taskQueue) {
+        this.taskQueue = taskQueue;
     }
 
     @Override
     public void run() {
-        for (;;) {
+        for (; ; ) {
             try {
-                TimeUnit.SECONDS.sleep(2);
+                TimeUnit.MILLISECONDS.sleep(ThreadLocalRandom.current().nextInt(1000, 5000));
             } catch (InterruptedException e) {
-                e.printStackTrace();
+                System.out.println("Interrupted on consuming task");
             }
-            synchronized (queue) {
-                if (queue.isEmpty()) {
-                    try {
-                        wait();
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
-                    }
-                }
-                int number = queue.poll();
-                System.out.println("Consumer consume a number " + number);
+
+            try {
+                Task task = taskQueue.take();
+                task.execute();
+            } catch (InterruptedException e) {
+                // set interrupt signal to true
+                Thread.currentThread().interrupt();
             }
-            notifyAll();
         }
     }
 }

@@ -1,39 +1,35 @@
 package synchronize;
 
 import java.util.Queue;
+import java.util.concurrent.ThreadLocalRandom;
 import java.util.concurrent.TimeUnit;
 
 public class Producer implements Runnable {
 
-    private final int SIZE = 3;
-    private int count = 0;
-    private final Queue<Integer> queue;
+    private TaskQueue taskQueue;
+    private static int taskId = 0;
 
-    public Producer(Queue<Integer> queue) {
-        this.queue = queue;
+    public Producer(TaskQueue taskQueue) {
+        this.taskQueue = taskQueue;
     }
 
     @Override
     public void run() {
-        for (;;) {
+        for (; ; ) {
             try {
-                TimeUnit.SECONDS.sleep(1);
+                TimeUnit.MILLISECONDS.sleep(ThreadLocalRandom.current().nextInt(1000, 5000));
             } catch (InterruptedException e) {
-                e.printStackTrace();
+                System.out.println("Interrupted on producing task");
             }
-            synchronized (queue) {
-                if (queue.size() > SIZE) {
-                    try {
-                        wait();
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
-                    }
-                }
-                int number = count++;
-                queue.add(number);
-                System.out.println("Producer product a number " + number);
+
+            Task task = new Task(taskId++);
+            try {
+                System.out.println(Thread.currentThread().getName() + " produce a task " + task.getTaskId());
+                taskQueue.put(task);
+            } catch (InterruptedException e) {
+                // set interrupt signal to true
+                Thread.currentThread().interrupt();
             }
-            notifyAll();
         }
     }
 }
