@@ -5,29 +5,31 @@ import java.util.Date;
 import java.util.Timer;
 import java.util.TimerTask;
 
-public class TimerTaskExample {
+/**
+ *  drawback: Timer stops when exception occurs
+ */
+public class TimerExample {
 
     private static SimpleDateFormat sdf = new SimpleDateFormat("HH:mm:ss");
+    private static int i = 0;
 
     public static void main(String[] args) {
         TimerTask timerTask = new TimerTask() {
             @Override
             public void run() {
-                System.out.println(sdf.format(new Date()) + " time task run");
-                try {
-                    Thread.sleep(3000L);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
+                System.out.println(sdf.format(new Date()) + " task runs");
+                i++;
+                if (i == 5) {
+                    throw new RuntimeException("exception occurs after 5 times");
                 }
             }
         };
 
         Timer timer = new Timer("timer");
-        long delay = 3000L;
+        long delay = 100L;
         long period = 1000L;
 
+        // timer stops after 5 times because of exception
         timer.schedule(timerTask, delay, period);
-
-        System.out.println(sdf.format(new Date()));
     }
 }
