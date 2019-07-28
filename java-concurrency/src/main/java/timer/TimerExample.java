@@ -7,6 +7,8 @@ import java.util.TimerTask;
 
 /**
  *  drawback: Timer stops when exception occurs
+ *  
+ *  single thread executes all scheduled tasks
  */
 public class TimerExample {
 

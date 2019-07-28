@@ -10,6 +10,7 @@ import java.util.concurrent.ScheduledThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 /**
  *  drawback: scheduled executor stops when exception occurs
+ *  If any execution of the task encounters an exception, subsequent executions are suppressed.Otherwise, the task will only terminate via cancellation or termination of the executor
  */
 public class ScheduledExecutorExample {
 
