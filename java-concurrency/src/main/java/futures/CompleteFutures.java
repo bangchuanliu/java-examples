@@ -1,10 +1,8 @@
 package futures;
 
-import java.util.List;
 import java.util.Random;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.TimeUnit;
-import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 import static java.util.concurrent.CompletableFuture.supplyAsync;
@@ -43,7 +41,7 @@ public class CompleteFutures {
         });
 
         CompletableFuture<Integer> f2 = f1.thenCompose(value -> {
-            return CompletableFuture.supplyAsync(() -> {
+            return supplyAsync(() -> {
                 try {
                     TimeUnit.MILLISECONDS.sleep(50);
                 } catch (InterruptedException e) {
@@ -68,7 +66,7 @@ public class CompleteFutures {
             return 1;
         });
 
-        CompletableFuture<Integer> f4 = CompletableFuture.supplyAsync(() -> {
+        CompletableFuture<Integer> f4 = supplyAsync(() -> {
             try {
                 TimeUnit.MILLISECONDS.sleep(100);
             } catch (InterruptedException e) {
@@ -84,7 +82,7 @@ public class CompleteFutures {
         });
 
         // combine multiple futures
-        CompletableFuture<Integer> f5 = CompletableFuture.supplyAsync(() -> {
+        CompletableFuture<Integer> f5 = supplyAsync(() -> {
             try {
                 TimeUnit.MILLISECONDS.sleep(100);
             } catch (InterruptedException e) {
@@ -92,7 +90,7 @@ public class CompleteFutures {
             }
             return 1;
         });
-        CompletableFuture<Integer> f6 = CompletableFuture.supplyAsync(() -> {
+        CompletableFuture<Integer> f6 = supplyAsync(() -> {
             try {
                 TimeUnit.MILLISECONDS.sleep(200);
             } catch (InterruptedException e) {
@@ -100,7 +98,7 @@ public class CompleteFutures {
             }
             return 2;
         });
-        CompletableFuture<Integer> f7 = CompletableFuture.supplyAsync(() -> {
+        CompletableFuture<Integer> f7 = supplyAsync(() -> {
             try {
                 TimeUnit.MILLISECONDS.sleep(300);
             } catch (InterruptedException e) {

@@ -4,6 +4,11 @@ import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
+
+/**
+ * high-order functions
+ * filter, map, flatmap
+ */
 public class Streams {
 
     public static void main(String[] args) {

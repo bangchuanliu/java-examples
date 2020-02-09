@@ -1,4 +1,4 @@
-package method;
+package lambda;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -18,7 +18,7 @@ public class MapMethod {
 
     public static void computeIfAbsent() {
         Map<String, List<Integer>> groups = new HashMap<>();
-
+        
         groups.computeIfAbsent("key", (unused) -> new ArrayList<>()).add(1);
         groups.computeIfAbsent("key", (unused) -> new ArrayList<>()).add(2);
         groups.computeIfAbsent("key", (unused) -> new ArrayList<>()).add(1);
