@@ -2,6 +2,9 @@ package volatiled;
 
 import java.util.concurrent.TimeUnit;
 
+/**
+ * volatile keyword forces CPU always reads data from memory instead of L1 cache
+ */
 public class StopWatch {
 
     // avoid compiler reordering of program 
